@@ -27,6 +27,28 @@ Terraform was used to create all resources. Two options are provided
 
 ## Folder Structure
 
+Deployment instructions
+
+Assuming S3 Backend is being used
+
+1. Go to folder - [backend-s3-tf](resource-creation/tf/backend-s3-tf)
+```
+cd resource-creation/tf/backend-s3-tf
+
+## Edit terraform.tfvars with appropriate values
+
+## run standard terraform commands
+terraform init
+terraform plan
+terraform apply -auto-approve
+
+## Capture the output values. Copy the S3 bucket name that is printed out
+
+
+```
+
+
+
 1. Step-1 to create S3 Bucket for backend state (optional)
 2. Step-2 to create Load balancer, ECS and ECR services 
 3. Step-3 CICD Pipelines 
