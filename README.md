@@ -111,7 +111,7 @@ terraform apply -auto-approve
 
   -  The Blue to Green Transition <br> ![BlueGreenTransition](documents/images/Blue-Green-Transition.png)
 
-  -  Apache to NGINX transition <br> !{apache-Nginx](documents/images/apache-nginx.png)
+  -  Apache to NGINX transition <br> ![apache-Nginx](documents/images/apache-nginx.png)
 
 
 
