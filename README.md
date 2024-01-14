@@ -1,6 +1,6 @@
 # Create an ECS Blue-Green deployment
 
-This project implements the instructions provided on  [AWS Create Pipeline for ECR to ECS Deployment](https://docs.aws.amazon.com/codepipeline/latest/userguide/tutorials-ecs-ecr-codedeploy.html) into terraform code for blue green deployments. Eventually a pipeline that can perform a Blue-Green deployment of an ECS Cluster is created.
+This project implements the instructions provided on  [AWS Create Pipeline for ECR to ECS Deployment](https://docs.aws.amazon.com/codepipeline/latest/userguide/tutorials-ecs-ecr-codedeploy.html) into terraform code for blue green deployments. Eventually a pipeline that can perform a Blue-Green deployment of an ECS Cluster is created. Its is assumed that you have a VPC setup or use the default VPC with public subnets
 
 
 ### Following resources were created by terraform 
