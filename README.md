@@ -160,6 +160,23 @@ Instructions for commiting code to AWS Code Commit are available [here](https://
 
   -  <b>Apache to NGINX transition</b> <br> ![apache-Nginx](documents/images/apache-nginx.png)
 
+
+8. <b>Destroy</b> After the project is complete, destroy the resources created by going to the respective folder and running terraform destroy, example- <br>
+
+```
+## Destroy resources
+cd resource-creation/tf/ecs-bg-with-s3-backend-tf
+terraform destroy
+
+cd resource-creation/tf/ecs-bg-ecr-pre-req-1
+terraform destroy
+
+cd resource-creation/tf/backend-s3-tf
+terraform destroy
+
+```
+
+
 #### Contact
 In case of any questions, concerns, suggestions or critiques, please contact email me at kloudexplorer@gmail.com.
 
