@@ -160,6 +160,7 @@ Instructions for commiting code to AWS Code Commit are available [here](https://
 
   -  <b>Apache to NGINX transition</b> <br> ![apache-Nginx](documents/images/apache-nginx.png)
 
-
+#### Contact
+In case of any questions, concerns or critiques, please contact [email me](kloudexplorer@gmail.com) me at kloudexplorer@gmail.com.
 
 
