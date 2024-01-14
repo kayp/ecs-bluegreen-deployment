@@ -88,8 +88,21 @@ docker push ${AccId}.dkr.ecr.{region}.amazonaws.com/ecs-bluegreen:latest/ecs-blu
 
 ```
 
+4. <b>Create All Resources</b> Go to folder - [ecs-bg-with-s3-backend-tf](resource-creation/tf/ecs-bg-with-s3-backend-tf). Edit the terraform.tfvars file as needed
 
+```
+cd resource-creation/tf/ecs-bg-ecr-pre-req-1
 
+## Edit terraform.tfvars with appropriate values
 
+## run standard terraform commands
+terraform init
+terraform plan
+terraform apply -auto-approve
+
+## Check if code pipeline has been created
+
+```
+5. <b> Update the image in the ECR Repo </b> 
 
 
