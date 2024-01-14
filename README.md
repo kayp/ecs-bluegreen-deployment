@@ -69,7 +69,9 @@ terraform apply -auto-approve
 3. <b>Create Docker Images</b> Go to folder - [docker](resource-creation/docker) <br>
 
 There are two Dockerfiles. For simplicity one is a basic Nginx webserver and the other is Apache (httpd) webserver.
-For this we first deploy the httpd docker image through ECS. The Blue green deployment replaces it with the nginx image. Detailed instructions to push the images to ECR are available on [AWS ECR userguide](https://docs.aws.amazon.com/AmazonECR/latest/userguide/docker-push-ecr-image.html)
+For this we first deploy the httpd docker image through ECS. The Blue green deployment replaces it with the nginx image. Detailed instructions to push the images to ECR are available on [AWS ECR userguide](https://docs.aws.amazon.com/AmazonECR/latest/userguide/docker-push-ecr-image.html). You can also obtain the commands from ECR page by clicking the [View push commands button](documents/images/Get-PushCommandsFrom-ECR.JPG)
+
+
 
 
 ```
