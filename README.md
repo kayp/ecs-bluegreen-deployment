@@ -14,7 +14,7 @@ This project converts the instructions provided on  [AWS Create Pipeline for ECR
  6. ECR Repo's
  7. S3 Buckets for backend Terraform state
 
-####Application Infrastructure
+#### Application Infrastructure
  1. Load balancers, target groups, listeners
  2. ECS Task, Service and Cluster 
  3. ECR Repo
