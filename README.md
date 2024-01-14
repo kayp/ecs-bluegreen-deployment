@@ -1,6 +1,6 @@
 # Create an ECS Blue-Green deployment
 
-This project converts the instructions provided on  [AWS Create Pipeline for ECR to ECS Deployment](https://docs.aws.amazon.com/codepipeline/latest/userguide/tutorials-ecs-ecr-codedeploy.html) into terraform code. Eventually a pipeline that can perform a Blue-Green deployment of an ECS Cluster is created.
+This project implements the instructions provided on  [AWS Create Pipeline for ECR to ECS Deployment](https://docs.aws.amazon.com/codepipeline/latest/userguide/tutorials-ecs-ecr-codedeploy.html) into terraform code for blue green deployments. Eventually a pipeline that can perform a Blue-Green deployment of an ECS Cluster is created.
 
 
 ### Following resources were created by terraform 
@@ -54,6 +54,7 @@ terraform apply -auto-approve
 ```
 cd resource-creation/tf/ecs-bg-ecr-pre-req-1
 
+## Existing folder structure creates a backend S3 terraform state. If you do not want a remote state file then remove main.tf
 ## Edit terraform.tfvars with appropriate values
 
 ## run standard terraform commands
@@ -72,7 +73,7 @@ There are two Dockerfiles. For simplicity one is a basic Nginx webserver and the
 For this we first deploy the httpd docker image through ECS. The Blue green deployment replaces it with the nginx image. Detailed instructions to push the images to ECR are available on [AWS ECR userguide](https://docs.aws.amazon.com/AmazonECR/latest/userguide/docker-push-ecr-image.html). You can also obtain the commands from ECR page by clicking the [View push commands button](documents/images/Get-PushCommandsFrom-ECR.JPG)
 
 
-The commands are generally in the following format. The name of container and ECR repo (repo name is ecs-bluegreen here) should match (as of January 2024)
+The commands are generally in the format shown below. The name of container and ECR repo (repo name is ecs-bluegreen here) should match (as of January 2024)
 
 ```
 ## Dockerfile
@@ -93,6 +94,7 @@ docker push ${AccId}.dkr.ecr.{region}.amazonaws.com/ecs-bluegreen:latest/ecs-blu
 ```
 cd resource-creation/tf/ecs-bg-ecr-pre-req-1
 
+## Existing folder structure creates a backend S3 terraform state. If you do not want a remote state file then remove main.tf as in the folder resource-creation/tf/ecs-bg-wo-s3-backend-tf 
 ## Edit terraform.tfvars with appropriate values
 
 ## run standard terraform commands
@@ -105,7 +107,11 @@ terraform apply -auto-approve
 ```
 5. <b> Update the image in the ECR Repo </b> - Repeat the docker container creation steps with a different doccker file. In this case we have httpd vs nginix
 
-6. <b> Release Change in the Code Pipeline </b> Release the change in the code pipeline. The final product should appear as shopwn below.
+6. Push files taskdef.json and appspec.json to the Codecommit repo created earlier (Step-4). Refer [AWS Documentation](https://docs.aws.amazon.com/codepipeline/latest/userguide/tutorials-ecs-ecr-codedeploy.html#tutorials-ecs-ecr-codedeploy-deployment) for further details.
+
+Instructions for commiting code to AWS Code Commit are available [here](https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-ssh-unixes.html)
+
+7. <b> Release Change in the Code Pipeline </b> Release the change in the code pipeline. The final product should appear as shopwn below.
 
   -  The CodePipeline <br> ![CodePipeline](documents/images/Pipeline-BG-2.JPG)
 
