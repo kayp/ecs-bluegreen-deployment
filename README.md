@@ -43,7 +43,7 @@ Terraform was used to create all resources. Two options are provided
 
 ```
 
-####Deployment instructions
+#### Deployment instructions
 
 Following instructions assume S3 Backend is being used. This can be avoided by removing the main.tf file where mentioned.
 
@@ -134,7 +134,7 @@ docker build -t ecs-bluegreen .
 docker tag ecs-bluegreen:latest ${AccId}.dkr.ecr.{region}.amazonaws.com/ecs-bluegreen:latest
 docker push  ${AccId}.dkr.ecr.{region}.amazonaws.com/ecs-bluegreen:latest
 
-## You can add extra tags -- suchaas httpd or ngnix or any other identifier- example below
+## You can add extra tags -- such as httpd or ngnix or any other identifier- example below
 docker tag ${AccId}.dkr.ecr.{region}.amazonaws.com/ecs-bluegreen:latest ${AccId}.dkr.ecr.{region}.amazonaws.com/ecs-bluegreen:nginx
 docker push ${AccId}.dkr.ecr.{region}.amazonaws.com/ecs-bluegreen:nginx
 
@@ -154,7 +154,7 @@ Instructions for commiting code to AWS Code Commit are available [here](https://
 
 7. <b> Release Change in the Code Pipeline </b> Release the change in the code pipeline. The final product should appear as shopwn below.
 
-  -  <b> The CodePipeline </b>  <br> ![CodePipeline](documents/images/Pipeline-BG-2.JPG)
+  -  <b> The CodePipeline </b>  <br> ![CodePipeline](documents/images/Pipeline-BG-3-Success.JPG)
 
   -  <b>The Blue to Green Transition</b> <br> ![BlueGreenTransition](documents/images/Blue-Green-Transition.png)
 
