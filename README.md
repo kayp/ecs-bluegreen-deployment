@@ -27,9 +27,25 @@ Terraform was used to create all resources. Two options are provided
 
 ## Folder Structure
 
-Deployment instructions
+```
+└───ecs-bluegreen-deployment
+    ├───documents
+    │   └───images
+    └───resource-creation
+        ├───docker
+        └───tf
+            ├───backend-s3-tf
+            │   └───modules
+            │       └───terraform-backend
+            ├───ecs-bg-ecr-pre-req-1
+            ├───ecs-bg-with-s3-backend-tf
+            └───ecs-bg-wo-s3-backend-tf
 
-Assuming S3 Backend is being used
+```
+
+####Deployment instructions
+
+Following instructions assume S3 Backend is being used. This can be avoided by removing the main.tf file where mentioned.
 
 1. <b>Create Terrraform Backend"</b> Go to folder - [backend-s3-tf](resource-creation/tf/backend-s3-tf)
 
