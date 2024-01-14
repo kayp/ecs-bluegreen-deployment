@@ -31,7 +31,8 @@ Deployment instructions
 
 Assuming S3 Backend is being used
 
-1. Go to folder - [backend-s3-tf](resource-creation/tf/backend-s3-tf)
+1. <b>Create Terrraform Backend"</b> Go to folder - [backend-s3-tf](resource-creation/tf/backend-s3-tf)
+
 ```
 cd resource-creation/tf/backend-s3-tf
 
@@ -46,6 +47,36 @@ terraform apply -auto-approve
 
 
 ```
+
+2. <b> Create the ECR Repo</b> Go to folder - [ecs-bg-ecr-pre-req-1](resource-creation/tf/ecs-bg-ecr-pre-req-1)
+
+
+```
+cd resource-creation/tf/ecs-bg-ecr-pre-req-1
+
+## Edit terraform.tfvars with appropriate values
+
+## run standard terraform commands
+terraform init
+terraform plan
+terraform apply -auto-approve
+
+## Go to ECR Service page on AWS Console page and verify the repo is created- you will need to copy push commands
+
+
+```
+
+3. <b>Create Docker Images</b> Go to folder - [docker](resource-creation/docker)
+
+```
+## Dockerfile
+
+
+
+
+```
+
+
 
 
 
