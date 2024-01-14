@@ -78,14 +78,17 @@ The commands are generally in the format shown below. The name of container and 
 ```
 ## Dockerfile
 
+#### choose your docker file, here HTTPD is deployed first
+cp Dockerfile.httpd Dockerfile
+
 aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin ${AccId}.dkr.ecr.{region}.amazonaws.com
 docker build -t ecs-bluegreen .
 docker tag ecs-bluegreen:latest ${AccId}.dkr.ecr.{region}.amazonaws.com/ecs-bluegreen:latest
-docker push  ${AccId}.dkr.ecr.{region}.amazonaws.com/ecs-bluegreen:latest/ecs-bluegreen:latest
+docker push  ${AccId}.dkr.ecr.{region}.amazonaws.com/ecs-bluegreen:latest
 
 ## You can add extra tags -- suchaas httpd or ngnix or any other identifier- example below
 docker tag ${AccId}.dkr.ecr.{region}.amazonaws.com/ecs-bluegreen:latest ${AccId}.dkr.ecr.{region}.amazonaws.com/ecs-bluegreen:httpd
-docker push ${AccId}.dkr.ecr.{region}.amazonaws.com/ecs-bluegreen:latest/ecs-bluegreen:latest
+docker push ${AccId}.dkr.ecr.{region}.amazonaws.com/ecs-bluegreen:httpd
 
 ```
 
@@ -107,9 +110,31 @@ terraform apply -auto-approve
 ```
 5. <b> Update the image in the ECR Repo </b> - Repeat the docker container creation steps with a different doccker file. In this case we have httpd vs nginix
 
+```
+cp Dockerfile.nginx Dockerfile
+nginx
+aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin ${AccId}.dkr.ecr.{region}.amazonaws.com
+docker build -t ecs-bluegreen .
+docker tag ecs-bluegreen:latest ${AccId}.dkr.ecr.{region}.amazonaws.com/ecs-bluegreen:latest
+docker push  ${AccId}.dkr.ecr.{region}.amazonaws.com/ecs-bluegreen:latest
+
+## You can add extra tags -- suchaas httpd or ngnix or any other identifier- example below
+docker tag ${AccId}.dkr.ecr.{region}.amazonaws.com/ecs-bluegreen:latest ${AccId}.dkr.ecr.{region}.amazonaws.com/ecs-bluegreen:nginx
+docker push ${AccId}.dkr.ecr.{region}.amazonaws.com/ecs-bluegreen:nginx
+
+```
+
+
+The ECR Repo should appear as follows. <br>
+![ECR Repo Images](documents/images/ECR-images-2.jpef)
+
+
 6. Push files taskdef.json and appspec.json to the Codecommit repo created earlier (Step-4). Refer [AWS Documentation](https://docs.aws.amazon.com/codepipeline/latest/userguide/tutorials-ecs-ecr-codedeploy.html#tutorials-ecs-ecr-codedeploy-deployment) for further details.
 
-Instructions for commiting code to AWS Code Commit are available [here](https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-ssh-unixes.html)
+Instructions for commiting code to AWS Code Commit are available [here](https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-ssh-unixes.html) and this can be performed in multiple ways. Eventually only two files need to be uploaded as shown below <br> ![CodeCommit Files](CodeCommit-Files-1.JPG)
+
+
+
 
 7. <b> Release Change in the Code Pipeline </b> Release the change in the code pipeline. The final product should appear as shopwn below.
 
