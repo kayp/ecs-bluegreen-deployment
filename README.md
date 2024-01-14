@@ -102,7 +102,7 @@ docker build -t ecs-bluegreen .
 docker tag ecs-bluegreen:latest ${AccId}.dkr.ecr.{region}.amazonaws.com/ecs-bluegreen:latest
 docker push  ${AccId}.dkr.ecr.{region}.amazonaws.com/ecs-bluegreen:latest
 
-## You can add extra tags -- suchaas httpd or ngnix or any other identifier- example below
+## You can add extra tags -- such as httpd or ngnix or any other identifier- example below
 docker tag ${AccId}.dkr.ecr.{region}.amazonaws.com/ecs-bluegreen:latest ${AccId}.dkr.ecr.{region}.amazonaws.com/ecs-bluegreen:httpd
 docker push ${AccId}.dkr.ecr.{region}.amazonaws.com/ecs-bluegreen:httpd
 
