@@ -103,6 +103,15 @@ terraform apply -auto-approve
 ## Check if code pipeline has been created
 
 ```
-5. <b> Update the image in the ECR Repo </b> 
+5. <b> Update the image in the ECR Repo </b> - Repeat the docker container creation steps with a different doccker file. In this case we have httpd vs nginix
+
+6. <b> Release Change in the Code Pipeline </b> Release the change in the code pipeline. The final product should appear as shopwn below.
+
+  -  The CodePipeline <br> ![CodePipeline](documents/images/Pipeline-BG-2.JPG)
+
+  -  The Blue to Green Transition <br> ![BlueGreenTransition](documents/images/Blue-Green-Transition.png)
+
+  -  Apache to NGINX transition
+
 
 
