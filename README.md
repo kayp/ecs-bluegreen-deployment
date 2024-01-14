@@ -126,12 +126,12 @@ docker push ${AccId}.dkr.ecr.{region}.amazonaws.com/ecs-bluegreen:nginx
 
 
 The ECR Repo should appear as follows. <br>
-![ECR Repo Images](documents/images/ECR-images-2.jpef)
+![ECR Repo Images](documents/images/ECR-images-2.JPG)
 
 
 6. Push files taskdef.json and appspec.json to the Codecommit repo created earlier (Step-4). Refer [AWS Documentation](https://docs.aws.amazon.com/codepipeline/latest/userguide/tutorials-ecs-ecr-codedeploy.html#tutorials-ecs-ecr-codedeploy-deployment) for further details.
 
-Instructions for commiting code to AWS Code Commit are available [here](https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-ssh-unixes.html) and this can be performed in multiple ways. Eventually only two files need to be uploaded as shown below <br> ![CodeCommit Files](CodeCommit-Files-1.JPG)
+Instructions for commiting code to AWS Code Commit are available [here](https://docs.aws.amazon.com/codecommit/latest/userguide/setting-up-ssh-unixes.html) and this can be performed in multiple ways. Eventually only two files need to be uploaded as shown below <br> ![CodeCommit Files](documents/images/CodeCommit-Files-1.JPG)
 
 
 
