@@ -72,13 +72,19 @@ There are two Dockerfiles. For simplicity one is a basic Nginx webserver and the
 For this we first deploy the httpd docker image through ECS. The Blue green deployment replaces it with the nginx image. Detailed instructions to push the images to ECR are available on [AWS ECR userguide](https://docs.aws.amazon.com/AmazonECR/latest/userguide/docker-push-ecr-image.html). You can also obtain the commands from ECR page by clicking the [View push commands button](documents/images/Get-PushCommandsFrom-ECR.JPG)
 
 
-
+The commands are generally in the following format. The name of container and ECR repo (repo name is ecs-bluegreen here) should match (as of January 2024)
 
 ```
 ## Dockerfile
 
+aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin ${AccId}.dkr.ecr.{region}.amazonaws.com
+docker build -t ecs-bluegreen .
+docker tag ecs-bluegreen:latest ${AccId}.dkr.ecr.{region}.amazonaws.com/ecs-bluegreen:latest
+docker push  ${AccId}.dkr.ecr.{region}.amazonaws.com/ecs-bluegreen:latest/ecs-bluegreen:latest
 
-
+## You can add extra tags -- suchaas httpd or ngnix or any other identifier- example below
+docker tag ${AccId}.dkr.ecr.{region}.amazonaws.com/ecs-bluegreen:latest ${AccId}.dkr.ecr.{region}.amazonaws.com/ecs-bluegreen:httpd
+docker push ${AccId}.dkr.ecr.{region}.amazonaws.com/ecs-bluegreen:latest/ecs-bluegreen:latest
 
 ```
 
@@ -86,8 +92,4 @@ For this we first deploy the httpd docker image through ECS. The Blue green depl
 
 
 
-1. Step-1 to create S3 Bucket for backend state (optional)
-2. Step-2 to create Load balancer, ECS and ECR services 
-3. Step-3 CICD Pipelines 
 
-## Create S3 Bucket for Backend
