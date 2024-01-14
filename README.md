@@ -138,11 +138,11 @@ Instructions for commiting code to AWS Code Commit are available [here](https://
 
 7. <b> Release Change in the Code Pipeline </b> Release the change in the code pipeline. The final product should appear as shopwn below.
 
-  -  The CodePipeline <br> ![CodePipeline](documents/images/Pipeline-BG-2.JPG)
+  -  <b> The CodePipeline </b>  <br> ![CodePipeline](documents/images/Pipeline-BG-2.JPG)
 
-  -  The Blue to Green Transition <br> ![BlueGreenTransition](documents/images/Blue-Green-Transition.png)
+  -  <b>The Blue to Green Transition</b> <br> ![BlueGreenTransition](documents/images/Blue-Green-Transition.png)
 
-  -  Apache to NGINX transition <br> ![apache-Nginx](documents/images/apache-nginx.png)
+  -  <b>Apache to NGINX transition</b> <br> ![apache-Nginx](documents/images/apache-nginx.png)
 
 
 
