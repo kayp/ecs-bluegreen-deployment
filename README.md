@@ -178,6 +178,6 @@ terraform destroy
 
 
 #### Contact
-In case of any questions, concerns, suggestions or critiques, please contact email me at kloudexplorer@gmail.com.
+In case of any questions, concerns, suggestions or critiques, please contact email me at kloudexplorer@gmail.com or use the report issues feature.
 
 
